@@ -52,9 +52,9 @@ if (!defined("WHMCS")) {
 function provisioningmodule_MetaData()
 {
     return array(
-        'DisplayName' => 'Demo Provisioning Module',
+        'DisplayName' => 'Testing',
         'APIVersion' => '1.1', // Use API Version 1.1
-        'RequiresServer' => true, // Set true if module requires a server to work
+        'RequiresServer' => false, // Set true if module requires a server to work
         'DefaultNonSSLPort' => '1111', // Default Non-SSL Connection Port
         'DefaultSSLPort' => '1112', // Default SSL Connection Port
         'ServiceSingleSignOnLabel' => 'Login to Panel as User',
@@ -89,46 +89,30 @@ function provisioningmodule_ConfigOptions()
 {
     return array(
         // a text field type allows for single line text input
-        'Text Field' => array(
+        'Masternode Alias' => array(
             'Type' => 'text',
-            'Size' => '25',
-            'Default' => '1024',
-            'Description' => 'Enter in megabytes',
+            'Default' => 'MN1',
+            'Description' => 'Your masternode friendly name',
+        ),
+        'Masternode Address' => array(
+            'Type' => 'text',
+            'Size' => '34',//are there exceptions?
+            'Description' => 'The address where you sent your collateral. Refer to the guide.',
         ),
         // a password field type allows for masked text input
-        'Password Field' => array(
+        'Masternode Private Key' => array(
             'Type' => 'password',
-            'Size' => '25',
-            'Default' => '',
-            'Description' => 'Enter secret value here',
+            'Size' => '51',//there may be exceptions
+            'Description' => 'Refer to the guide.',
         ),
-        // the yesno field type displays a single checkbox option
-        'Checkbox Field' => array(
-            'Type' => 'yesno',
-            'Description' => 'Tick to enable',
+        'Transaction ID' => array(
+            'Type' => 'text',
+            'Description' => 'The collateral transaction ID. Refer to the guide.',
         ),
-        // the dropdown field type renders a select menu of options
-        'Dropdown Field' => array(
-            'Type' => 'dropdown',
-            'Options' => array(
-                'option1' => 'Display Value 1',
-                'option2' => 'Second Option',
-                'option3' => 'Another Option',
-            ),
-            'Description' => 'Choose one',
-        ),
-        // the radio field type displays a series of radio button options
-        'Radio Field' => array(
-            'Type' => 'radio',
-            'Options' => 'First Option,Second Option,Third Option',
-            'Description' => 'Choose your option!',
-        ),
-        // the textarea field type allows for multi-line text input
-        'Textarea Field' => array(
-            'Type' => 'textarea',
-            'Rows' => '3',
-            'Cols' => '60',
-            'Description' => 'Freeform multi-line text input field',
+        'Height' => array(
+            'Type' => 'text',
+            'Size' => '1',
+            'Description' => 'Refer to the guide. Possible values: 0 or 1',
         ),
     );
 }
